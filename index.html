@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>S ♥ H</title>
+  <meta name="theme-color" content="#f4dcd6">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <main id="app">
+
+    <!-- ============ 1. ENVELOPE ============ -->
+    <section id="screen-envelope" class="screen is-active" aria-label="A letter for you">
+      <button class="env-btn" id="envelope" type="button" aria-label="Open the letter">
+        <span class="env-float">
+          <span class="env">
+            <span class="env__back"></span>
+
+            <span class="letter">
+              <span class="letter__paper">
+                <span class="letter__script">for you</span>
+                <span class="letter__lines"></span>
+              </span>
+            </span>
+
+            <span class="flap">
+              <span class="flap__out"></span>
+              <span class="flap__in"></span>
+            </span>
+
+            <span class="pocket"></span>
+
+            <span class="seal">
+              <svg class="seal__svg" viewBox="0 0 100 100" aria-hidden="true">
+                <defs>
+                  <filter id="wax" x="-12%" y="-12%" width="124%" height="124%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="n"/>
+                    <feDisplacementMap in="SourceGraphic" in2="n" scale="6"/>
+                  </filter>
+                  <radialGradient id="waxFill" cx="36%" cy="30%" r="78%">
+                    <stop offset="0" stop-color="#cf5570"/>
+                    <stop offset=".5" stop-color="#9a2b45"/>
+                    <stop offset="1" stop-color="#5e1528"/>
+                  </radialGradient>
+                  <radialGradient id="waxShine" cx="30%" cy="24%" r="40%">
+                    <stop offset="0" stop-color="#ffffff" stop-opacity=".45"/>
+                    <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="44" fill="url(#waxFill)" filter="url(#wax)"/>
+                <circle cx="50" cy="50" r="34" fill="none" stroke="#4a0f1f" stroke-opacity=".45" stroke-width="1.6"/>
+                <circle cx="50" cy="50" r="34" fill="none" stroke="#f0aebb" stroke-opacity=".35" stroke-width="1" transform="translate(.6 .8)"/>
+                <circle cx="50" cy="50" r="44" fill="url(#waxShine)"/>
+                <text x="50" y="58" text-anchor="middle" class="seal__txt seal__txt--shadow">S ♥ H</text>
+                <text x="50" y="57" text-anchor="middle" class="seal__txt">S ♥ H</text>
+              </svg>
+            </span>
+          </span>
+        </span>
+      </button>
+    </section>
+
+    <!-- ============ 2. QUIZ ============ -->
+    <section id="screen-quiz" class="screen" aria-label="A little quiz about us" aria-hidden="true">
+      <div class="card" id="card">
+        <header class="card__top">
+          <p class="progress__label" id="progress-label" aria-live="polite">1 / 5</p>
+          <div class="progress__track" role="progressbar" aria-label="Quiz progress" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1" id="progress">
+            <span class="progress__fill" id="progress-fill"></span>
+          </div>
+        </header>
+
+        <form id="quiz-form" novalidate autocomplete="off">
+          <div class="q-slot" id="q-slot"></div>
+          <button class="btn" id="next-btn" type="submit"><span id="next-label">Continue</span></button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ 3. CINEMATIC SCENE ============ -->
+    <section id="screen-scene" class="screen scene" aria-label="Our story" aria-hidden="true">
+      <div class="layer layer--1" id="layer1">
+        <div class="stage stage--1" id="stage1">
+          <div class="plate-wrap" id="plateWrap">
+            <img class="plate" src="assets/photo1_clean.jpg" alt="" draggable="false">
+            <img class="hand hand--l" id="handL" src="assets/photo1_clean.jpg" alt="" draggable="false">
+            <img class="hand hand--r" id="handR" src="assets/photo1_clean.jpg" alt="" draggable="false">
+            <img class="orig" id="orig" src="assets/photo1.jpg" alt="Two hands reaching toward each other, a golden ring resting between them" draggable="false">
+          </div>
+          <img class="ring-overlay" id="ringOverlay" src="assets/ring.png" alt="" draggable="false">
+        </div>
+      </div>
+
+      <div class="layer layer--2" id="layer2">
+        <div class="backdrop2" aria-hidden="true"></div>
+        <div class="stage stage--2" id="stage2">
+          <img id="photo2" src="assets/photo2.jpg" alt="Two hands touching by a window at sunset, wearing golden rings" draggable="false">
+        </div>
+      </div>
+
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="scrim" id="scrim" aria-hidden="true"></div>
+
+      <div class="pen" id="pen" aria-hidden="true">
+        <svg viewBox="0 0 70 150" width="70" height="150">
+          <defs>
+            <linearGradient id="penBody" x1="0" x2="1"><stop offset="0" stop-color="#5a1426"/><stop offset=".45" stop-color="#b5405a"/><stop offset="1" stop-color="#4a0f1f"/></linearGradient>
+            <linearGradient id="penGold" x1="0" x2="1"><stop offset="0" stop-color="#a87a2c"/><stop offset=".5" stop-color="#f8e0a2"/><stop offset="1" stop-color="#a87a2c"/></linearGradient>
+          </defs>
+          <g transform="translate(6 148) rotate(22)">
+            <path d="M0 0 L-4.5 -24 Q0 -30 4.5 -24 Z" fill="url(#penGold)"/>
+            <path d="M0 -3 V-20" stroke="#6b4a14" stroke-width=".8"/>
+            <rect x="-6.5" y="-56" width="13" height="32" rx="3" fill="url(#penGold)"/>
+            <rect x="-8" y="-142" width="16" height="88" rx="8" fill="url(#penBody)"/>
+            <rect x="-8.4" y="-98" width="16.8" height="3" fill="url(#penGold)"/>
+            <rect x="-8.4" y="-58" width="16.8" height="3" fill="url(#penGold)"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="message" id="message" dir="rtl" lang="ar" aria-live="polite"></div>
+      <button class="replay" id="replay" type="button">Watch again</button>
+    </section>
+  </main>
+
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <!-- Music controls -->
+  <div class="music" id="music">
+    <button class="music__btn" id="music-btn" type="button" aria-label="Turn music on" aria-pressed="false">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path class="ico-note" d="M9 18V6l10-2v12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle class="ico-note" cx="6.5" cy="18" r="2.6" fill="currentColor"/>
+        <circle class="ico-note" cx="16.5" cy="16" r="2.6" fill="currentColor"/>
+        <path class="ico-off" d="M4 4l16 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <input class="music__vol" id="music-vol" type="range" min="0" max="100" value="35" aria-label="Music volume">
+  </div>
+
+  <noscript><p class="noscript">This little surprise needs JavaScript to open.</p></noscript>
+  <div class="bh" id="bh" aria-hidden="true"></div>
+  <div class="finale" id="finale" aria-hidden="true">
+    <video id="finaleVideo" src="assets/romantic_ring_cinematic.mp4" playsinline preload="auto"></video>
+    <button class="finale__again" id="finaleAgain" type="button">Watch again</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
